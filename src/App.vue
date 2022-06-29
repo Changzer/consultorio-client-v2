@@ -18,14 +18,14 @@
       
           <p class="menu-label"> Pessoas </p>
           <ul class="menu-list">
-            <li><a>Paciente</a></li>
+            <li><a>PacienteModel</a></li>
             <li><a>Médico</a></li>
-            <li><a>Secretaria</a></li>
+            <li><a>SecretariaModel</a></li>
           </ul>
 
           <p class="menu-label"> Administração </p>
           <ul class="menu-list">
-            <li><a>Especialidade</a></li>
+            <li><a>EspecialidadeModel</a></li>
             <li><a>Convênio</a></li>
           </ul>
         </aside>

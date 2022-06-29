@@ -1,7 +1,7 @@
-import { AbstractEntity } from "./abstract-entity";
+import { AbstractEntityModel } from "./abstract-entity.model";
 import {Sexo} from "@/model/sexo.enum";
 
-export class Pessoa extends AbstractEntity{
+export class PessoaModel extends AbstractEntityModel{
     nome! : string
     telefone! : string
     nacionalidade! : string

@@ -1,4 +1,4 @@
-export class AbstractEntity {
+export class AbstractEntityModel {
     id! : number
     cadastro! : Date
     atualizado! : Date
