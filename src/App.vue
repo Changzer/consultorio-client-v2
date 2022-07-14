@@ -18,9 +18,9 @@
       
           <p class="menu-label"> Pessoas </p>
           <ul class="menu-list">
-            <li><a>PacienteModel</a></li>
+            <li><a>Paciente</a></li>
             <li><a>Médico</a></li>
-            <li><a>SecretariaModel</a></li>
+            <li><a>Secretaria</a></li>
           </ul>
 
           <p class="menu-label"> Administração </p>

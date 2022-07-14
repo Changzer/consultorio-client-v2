@@ -25,6 +25,22 @@ const routes: Array<RouteRecordRaw> = [
     name: 'convenio-detalhar',
     props: (router) => ({ id: router.params.id, model: router.params.model }),
     component: () => import(/* webpackChunkName: "form" */ '../views/convenio/convenio-form.vue')
+  },
+  {
+    path: '/especialidade/listar',
+    name: 'especialidade-listar',
+    component: () => import(/* webpackChunkName: "list" */ '../views/especialidade/especialidade-list.vue')
+  },
+  {
+    path: '/especialidade/form',
+    name: 'especialidade-form',
+    component: () => import(/* webpackChunkName: "form" */ '../views/especialidade/especialidade-form.vue')
+  },
+  {
+    path: '/especialidade/form/:model/:id',
+    name: 'especialidade-detalhar',
+    props: (router) => ({ id: router.params.id, model: router.params.model }),
+    component: () => import(/* webpackChunkName: "form" */ '../views/especialidade/especialidade-form.vue')
   }
 ]
 
