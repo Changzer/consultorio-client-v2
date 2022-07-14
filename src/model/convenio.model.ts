@@ -1,6 +1,6 @@
 import {AbstractEntityModel} from "@/model/abstract-entity.model";
 
-export class ConvenioModel extends AbstractEntityModel{
+export class Convenio extends AbstractEntityModel{
     nome! : string
     valor! : number
 

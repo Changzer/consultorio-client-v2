@@ -1,6 +1,6 @@
 import {PessoaModel} from "@/model/pessoa.model";
 
-export class SecretariaModel extends PessoaModel{
+export class Secretaria extends PessoaModel{
     salario! : number
     datacontratacao!: Date
     pis! : string

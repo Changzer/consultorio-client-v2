@@ -1,5 +1,5 @@
 import { AbstractEntityModel } from "./abstract-entity.model";
 
-export class EspecialidadeModel extends AbstractEntityModel{
+export class Especialidade extends AbstractEntityModel{
     nome! : string
 }

@@ -25,8 +25,8 @@
 
           <p class="menu-label"> Administração </p>
           <ul class="menu-list">
-            <li><a>EspecialidadeModel</a></li>
-            <li><a>Convênio</a></li>
+            <li><router-link to="/especialidade/listar">Especialidade</router-link></li>
+            <li><router-link to="/convenio/listar">Convênio</router-link></li>
           </ul>
         </aside>
       </nav>

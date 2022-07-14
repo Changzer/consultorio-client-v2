@@ -1,24 +1,24 @@
 import axios, { AxiosInstance } from "axios";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";
-import { Medico } from "@/model/medico.model";
+import { Secretaria } from "@/model/secretaria.model";
 
-export class MedicoClient {
+export class SecretariaClient {
     private axiosClient: AxiosInstance;
     constructor() {
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8080/api/medicos',
+            baseURL: 'http://localhost:8080/api/secretarias',
             headers: { 'Content-type': 'application/json' }
         });
     }
-    public async findById(id: number): Promise<Medico> {
+    public async findById(id: number): Promise<Secretaria> {
         try {
-            return (await this.axiosClient.get<Medico>(`/${id}`)).data
-        } catch (error:any) {
+            return (await this.axiosClient.get<Secretaria>(`/${id}`)).data
+        } catch (error: any) {
             return Promise.reject(error.response)
         }
     }
-    public async findByFiltrosPaginado(pageRequest: PageRequest): Promise<PageResponse<Medico>> {
+    public async findByFiltrosPaginado(pageRequest: PageRequest): Promise<PageResponse<Secretaria>> {
         try {
 
             let requestPath = ''
@@ -28,34 +28,34 @@ export class MedicoClient {
             requestPath += `&sort=${pageRequest.sortField === undefined
                 ? '' : pageRequest.sortField},${pageRequest.direction}`
 
-            return (await this.axiosClient.get<PageResponse<Medico>>(requestPath,
+            return (await this.axiosClient.get<PageResponse<Secretaria>>(requestPath,
                 {
                     params: { filtros: pageRequest.filter }
                 }
             )).data
-        } catch (error:any) {
+        } catch (error: any) {
             return Promise.reject(error.response)
         }
     }
-    public async cadastrar(medico: Medico): Promise<void> {
+    public async cadastrar(secretaria: Secretaria): Promise<void> {
         try {
-            return (await this.axiosClient.post('/', medico))
-        } catch (error:any) {
+            return (await this.axiosClient.post('/', secretaria))
+        } catch (error: any) {
             return Promise.reject(error.response)
         }
     }
-    public async editar(medico: Medico): Promise<void> {
+    public async editar(secretaria: Secretaria): Promise<void> {
         try {
-            return (await this.axiosClient.put(`/${medico.id}`, medico)).data
-        } catch (error:any) {
+            return (await this.axiosClient.put(`/${secretaria.id}`, secretaria)).data
+        } catch (error: any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async desativar(medico: Medico): Promise<void> {
+    public async desativar(secretaria: Secretaria): Promise<void> {
         try {
-            return (await this.axiosClient.put(`/desativar/${medico.id}`, medico)).data
-        } catch (error:any) {
+            return (await this.axiosClient.put(`/desativar/${secretaria.id}`, secretaria)).data
+        } catch (error: any) {
             return Promise.reject(error.response)
         }
     }

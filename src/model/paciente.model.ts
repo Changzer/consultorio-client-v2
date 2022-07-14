@@ -1,11 +1,11 @@
 import {PessoaModel} from "@/model/pessoa.model";
 import {TipoAgendamento} from "@/model/tipoagendamento.enum";
-import {ConvenioModel} from "@/model/convenio.model";
+import {Convenio} from "@/model/convenio.model";
 
 
-export class PacienteModel extends PessoaModel {
+export class Paciente extends PessoaModel {
     tipoAtendimento! : TipoAgendamento
-    convenio! : ConvenioModel
+    convenio! : Convenio
     numeroCartaoConvenio! : number
     dataVencimento! : Date
 }
