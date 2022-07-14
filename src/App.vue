@@ -19,7 +19,7 @@
           <p class="menu-label"> Pessoas </p>
           <ul class="menu-list">
             <li><a>Paciente</a></li>
-            <li><a>Médico</a></li>
+            <li><router-link to="/medico/listar">Médico</router-link></li>
             <li><a>Secretaria</a></li>
           </ul>
 

@@ -8,25 +8,6 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
-  {
-    path: '/convenio/form',
-    name: 'convenio-form',
-    component: () => import(/* webpackChunkName: "form" */ '../views/convenio/convenio-form.vue')
-  },
-  {
-    path: '/convenio/form/:model/:id',
-    name: 'convenio-detalhar',
-    props: (router) => ({ id: router.params.id, model: router.params.model }),
-    component: () => import(/* webpackChunkName: "form" */ '../views/convenio/convenio-form.vue')
-  },
-  {
     path: '/especialidade/listar',
     name: 'especialidade-listar',
     component: () => import(/* webpackChunkName: "list" */ '../views/especialidade/especialidade-list.vue')
@@ -41,7 +22,41 @@ const routes: Array<RouteRecordRaw> = [
     name: 'especialidade-detalhar',
     props: (router) => ({ id: router.params.id, model: router.params.model }),
     component: () => import(/* webpackChunkName: "form" */ '../views/especialidade/especialidade-form.vue')
-  }
+  },
+  {
+    path: '/convenio/listar',
+    name: 'convenio-listar',
+    component: () => import(/* webpackChunkName: "list" */ '../views/convenio/convenio-list.vue')
+  },
+  {
+    path: '/convenio/form',
+    name: 'convenio-form',
+    component: () => import(/* webpackChunkName: "form" */ '../views/convenio/convenio-form.vue')
+  },
+  {
+    path: '/convenio/form/:model/:id',
+    name: 'convenio-detalhar',
+    props: (router) => ({ id: router.params.id, model: router.params.model }),
+    component: () => import(/* webpackChunkName: "form" */ '../views/convenio/convenio-form.vue')
+  },
+
+  {
+    path: '/medico/listar',
+    name: 'medico-listar',
+    component: () => import(/* webpackChunkName: "list" */ '../views/medico/medico-list.vue')
+  },
+  {
+    path: '/medico/form',
+    name: 'medico-form',
+    component: () => import(/* webpackChunkName: "list" */ '../views/medico/medico-form.vue')
+  },
+  {
+    path: '/medico/form/:model/:id',
+    name: 'medico-detalhar',
+    props: (router) => ({ id: router.params.id, model: router.params.model}),
+    component: () => import(/* webpackChunkName: "list" */ '../views/medico/medico-form.vue')
+  },
+
 ]
 
 const router = createRouter({
