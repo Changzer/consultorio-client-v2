@@ -1,4 +1,5 @@
 <template>
+
   <div class="columns">
     <div class="column is-12 is-size-3">
       Lista de Convenios
@@ -8,35 +9,37 @@
   <hr/>
 
   <div class="columns">
-    <div class="column is-9">
+    <div class="column is-6">
       <input class="input" type="text" placeholder="Nome do Convenio">
     </div>
-    <div class="column is-3">
+    <div class="column is-2">
       <router-link to="/convenio/form">
         <button class="button is-fullwidth">Cadastrar</button>
       </router-link>
     </div>
   </div>
 
+  <hr/>
+
   <table class="table table is-fullwidth tabela">
     <thead class="green">
-    <tr style="background: hsl(0deg, 0%, 29%); border-color: black">
-      <th style="color: #ffffff;">ID</th>
-      <th style="color: #ffffff;">Ativo</th>
-      <th style="color: #ffffff;">Nome</th>
-      <th style="color: #ffffff;">Custo</th>
-      <th style="color: #ffffff;">Outros</th>
+    <tr style="background: darkblue; border-color: darkblue">
+      <th style="color: #fff;">ID</th>
+      <th style="color: #fff;">Ativo</th>
+      <th style="color: #fff;">Convenio</th>
+      <th style="color: #fff;">Valor</th>
     </tr>
     </thead>
     <tbody>
     <tr v-for="item in conveniosList" :key="item.id">
       <th>{{ item.id }}</th>
+
       <th>
         <span v-if="item.ativo == true" class="tag is-success"> Ativo </span>
         <span v-if="!item.ativo" class="tag is-danger"> Inativo </span>
       </th>
+
       <th>{{ item.nome }}</th>
-      <th>{{ item.valor }}</th>
       <th>
         <button @click="onClickPaginaDetalhar(item.id)" class="button is-small is-warning"> Detalhar</button>
       </th>
@@ -44,7 +47,6 @@
     </tbody>
   </table>
 
-  <hr/>
 </template>
 
 <script lang="ts">
@@ -53,22 +55,21 @@ import {PageRequest} from '@/model/page/page-request'
 import {PageResponse} from '@/model/page/page-response'
 
 import {Convenio} from '@/model/convenio.model'
-import {ConvenioClient} from '@/client/convenio.client'
+import {ConveniosClient} from '@/client/convenios.client'
 
-export default class ConveniosList extends Vue {
-
+export default class ConvenioList extends Vue {
   private pageRequest: PageRequest = new PageRequest()
   private pageResponse: PageResponse<Convenio> = new PageResponse()
 
   private conveniosList: Convenio[] = []
-  private convenioClient!: ConvenioClient
+  private convenioClient!: ConveniosClient
 
   public mounted(): void {
-    this.convenioClient = new ConvenioClient()
-    this.listarConvenio()
+    this.convenioClient = new ConveniosClient()
+    this.listarConvenios()
   }
 
-  private listarConvenio(): void {
+  private listarConvenios(): void {
     this.convenioClient.findByFiltrosPaginado(this.pageRequest)
         .then(
             success => {

@@ -99,11 +99,11 @@ import {Vue} from 'vue-class-component';
 
 import {Convenio} from "@/model/convenio.model";
 import {Notification} from "@/model/notification";
-import {ConvenioClient} from "@/client/convenio.client";
+import {ConveniosClient} from "@/client/convenios.client";
 import {Prop} from "vue-property-decorator";
 
 export default class ConvenioForm extends Vue {
-  private convenioClient!: ConvenioClient
+  private convenioClient!: ConveniosClient
   private convenio: Convenio = new Convenio()
   private notification: Notification = new Notification()
   private modoVisualizacao = 'detalhar'
@@ -114,7 +114,7 @@ export default class ConvenioForm extends Vue {
   private readonly model!: string
 
   public mounted(): void {
-    this.convenioClient = new ConvenioClient()
+    this.convenioClient = new ConveniosClient()
     this.carregarConvenio()
   }
 

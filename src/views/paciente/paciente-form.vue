@@ -222,7 +222,7 @@ import {PacienteClient} from "@/client/paciente.client";
 import {PageRequest} from '@/model/page/page-request'
 import {PageResponse} from '@/model/page/page-response'
 import {Convenio} from '@/model/convenio.model'
-import {ConvenioClient} from '@/client/convenio.client'
+import {ConveniosClient} from '@/client/convenios.client'
 import {Prop} from "vue-property-decorator";
 
 
@@ -233,7 +233,7 @@ export default class PacienteForm extends Vue {
   private conveniosList: Convenio[] = []
   private pageRequest: PageRequest = new PageRequest()
   private pageResponse: PageResponse<Convenio> = new PageResponse<Convenio>()
-  private convenioClient!: ConvenioClient
+  private conveniosClient!: ConveniosClient
   @Prop({type: Number, required: false})
   private readonly id!: number
   @Prop({type: String, default: false})
@@ -242,13 +242,13 @@ export default class PacienteForm extends Vue {
 
   public mounted(): void {
     this.pacienteClient = new PacienteClient()
-    this.convenioClient = new ConvenioClient()
+    this.conveniosClient = new ConveniosClient()
     this.carregarPaciente()
     this.listarConvenios()
   }
 
   private listarConvenios(): void {
-    this.convenioClient.findByFiltrosPaginado(this.pageRequest)
+    this.conveniosClient.findByFiltrosPaginado(this.pageRequest)
         .then(
             success => {
               this.pageResponse = success

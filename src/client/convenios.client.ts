@@ -3,7 +3,7 @@ import {PageRequest} from "@/model/page/page-request";
 import {PageResponse} from "@/model/page/page-response";
 import {Convenio} from "@/model/convenio.model";
 
-export class ConvenioClient {
+export class ConveniosClient {
     private axiosClient: AxiosInstance;
 
     constructor() {

@@ -13,7 +13,7 @@ export class MedicoClient {
     }
     public async findById(id: number): Promise<Medico> {
         try {
-            return (await this.axiosClient.get<Medico>(`/${id}`)).data
+            return (await this.axiosClient.get<Medico>(`${id}`)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
