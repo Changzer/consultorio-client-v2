@@ -36,7 +36,7 @@
         <span v-if="!item.ativo" class="tag is-danger"> Inativo </span>
       </th>
       <th>{{ item.nome }}</th>
-      <th>{{ item.custo }}</th>
+      <th>{{ item.valor }}</th>
       <th>
         <button @click="onClickPaginaDetalhar(item.id)" class="button is-small is-warning"> Detalhar</button>
       </th>
@@ -55,7 +55,8 @@ import {PageResponse} from '@/model/page/page-response'
 import {Convenio} from '@/model/convenio.model'
 import {ConvenioClient} from '@/client/convenio.client'
 
-export default class ConvenioList extends Vue {
+export default class ConveniosList extends Vue {
+
   private pageRequest: PageRequest = new PageRequest()
   private pageResponse: PageResponse<Convenio> = new PageResponse()
 
@@ -64,15 +65,16 @@ export default class ConvenioList extends Vue {
 
   public mounted(): void {
     this.convenioClient = new ConvenioClient()
-    this.listarConvenios()
+    this.listarConvenio()
   }
 
-  private listarConvenios(): void {
+  private listarConvenio(): void {
     this.convenioClient.findByFiltrosPaginado(this.pageRequest)
         .then(
             success => {
               this.pageResponse = success
               this.conveniosList = this.pageResponse.content
+              console.log(this.conveniosList)
             },
             error => console.log(error)
         )

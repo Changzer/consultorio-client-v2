@@ -44,7 +44,7 @@
     <div class="column is-12 is-size-3">
       <label class="label">Custo</label>
       <div class="control">
-        <input class="input is-primary" type="number" v-model="convenio.custo"
+        <input class="input is-primary" type="number" v-model="convenio.valor"
                :readonly="modoVisualizacao === 'detalhar'" placeholder="Custo do Convenio">
       </div>
     </div>
