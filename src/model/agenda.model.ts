@@ -2,7 +2,8 @@ import {Paciente} from "@/model/paciente.model";
 import {Medico} from "@/model/medico.model";
 import {statusagenda} from "@/model/statusagenda.enum";
 
-export class agendaModel {
+export class Agenda {
+    id! : bigint
     paciente! : Paciente
     medico! : Medico
     statusagenda! : statusagenda

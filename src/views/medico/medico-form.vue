@@ -238,9 +238,10 @@ export default class MedicoForm extends Vue {
   private medicoClient!: MedicoClient
   private medico: Medico = new Medico()
   private notification: Notification = new Notification()
-  private especialidadeList: Especialidade[] = []
   private pageRequest: PageRequest = new PageRequest()
   private pageResponse: PageResponse<Especialidade> = new PageResponse<Especialidade>()
+
+  private especialidadeList: Especialidade[] = []
   private especialidadeClient!: EspecialidadeClient
 
   @Prop({type: Number, required: false})

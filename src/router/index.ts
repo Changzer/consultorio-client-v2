@@ -87,6 +87,22 @@ const routes: Array<RouteRecordRaw> = [
     props: (router) => ({ id: router.params.id, model: router.params.model}),
     component: () => import(/* webpackChunkName: "list" */ '../views/medico/medico-form.vue')
   },
+  {
+    path: '/agenda/listar',
+    name: 'agenda-listar',
+    component: () => import(/* webpackChunkName: "list" */ '../views/agenda/agenda-list.vue')
+  },
+  {
+    path: '/agenda/form',
+    name: 'agenda-form',
+    component: () => import(/* webpackChunkName: "list" */ '../views/agenda/agenda-form.vue')
+  },
+  {
+    path: '/agenda/form/:model/:id',
+    name: 'agenda-detalhar',
+    props: (router) => ({ id: router.params.id, model: router.params.model}),
+    component: () => import(/* webpackChunkName: "list" */ '../views/agenda/agenda-form.vue')
+  }
 
 ]
 
